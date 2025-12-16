@@ -10,6 +10,9 @@ public partial class PersonsPage : ContentPage
 		InitializeComponent();
 
 		// TODO: Zla praktyka ze Page tworzy samodzielnie PageModel
-		this.BindingContext = new PersonsPageModel(new SqlPersonService());
+		this.BindingContext = new PersonsPageModel(new SqlPersonService(new SqlConnection()));
+
+		// zamiast recznego tworzenia zagniezdzonych obiektow (rozwiazania zaleznosci)
+		// stosuje sie mechanizm automatycznego wstrzykiwania zaleznosci (Dependency Injection)
 	}
 }
