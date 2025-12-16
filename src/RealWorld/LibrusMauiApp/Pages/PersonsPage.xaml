@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pm="clr-namespace:LibrusMauiApp.PageModels"
+             xmlns:m="clr-namespace:LibrusMauiApp.Models"
              x:Class="LibrusMauiApp.Pages.PersonsPage"
              x:DataType="{x:Type pm:PersonsPageModel}"
              Title="PersonsPage">
@@ -11,7 +12,17 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <CollectionView ItemsSource="{Binding Persons}">
+        <CollectionView ItemsSource="{Binding Persons}" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type m:Person}">
+                    
+                    <Grid ColumnDefinitions="1*,2*" Padding="10">
+                        <Label Text="{Binding FirstName}" Grid.Column="0" />
+                        <Label Text="{Binding LastName}" Grid.Column="1" />
+                    </Grid>
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
             
         </CollectionView>
         
