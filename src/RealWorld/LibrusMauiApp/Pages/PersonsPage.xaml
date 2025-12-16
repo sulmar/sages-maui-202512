@@ -6,25 +6,26 @@
              x:Class="LibrusMauiApp.Pages.PersonsPage"
              x:DataType="{x:Type pm:PersonsPageModel}"
              Title="PersonsPage">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="PersonTemplate" x:DataType="{x:Type m:Person}">
+            <Grid ColumnDefinitions="1*,2*" Padding="10">
+                <Label Text="{Binding FirstName}" Grid.Column="0" />
+                <Label Text="{Binding LastName}" Grid.Column="1" />
+            </Grid>
+        </DataTemplate>
+      
+    </ContentPage.Resources>
+    
     <VerticalStackLayout>
         <Label 
             Text="Lista uczniów"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <CollectionView ItemsSource="{Binding Persons}" >
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="{x:Type m:Person}">
-                    
-                    <Grid ColumnDefinitions="1*,2*" Padding="10">
-                        <Label Text="{Binding FirstName}" Grid.Column="0" />
-                        <Label Text="{Binding LastName}" Grid.Column="1" />
-                    </Grid>
-                    
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            
-        </CollectionView>
-        
+        <CollectionView 
+            ItemsSource="{Binding Persons}" 
+            ItemTemplate="{StaticResource PersonTemplate}" />
+
     </VerticalStackLayout>
 </ContentPage>
