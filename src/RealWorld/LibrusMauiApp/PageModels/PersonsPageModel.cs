@@ -1,4 +1,6 @@
-﻿using LibrusMauiApp.Models;
+﻿using LibrusMauiApp.Abstractions;
+using LibrusMauiApp.Infrastructures;
+using LibrusMauiApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,20 +14,18 @@ public class PersonsPageModel : BasePageModel
 {
     public ObservableCollection<Person> Persons { get; set; } = new ObservableCollection<Person>();
 
-    public PersonsPageModel()
+    private readonly IPersonService _personService;
+
+    public PersonsPageModel(IPersonService personService)
     {
+        _personService = personService;
+
         LoadData();
     }
 
     public void LoadData()
     {
-        // TODO: Przenies do uslugi PersonService
-        var persons = new List<Person>
-        {
-            new Person { FirstName = "John", LastName = "Smith" },
-            new Person { FirstName = "Bob",  LastName = "Smith" },
-            new Person { FirstName = "Kate", LastName = "Smith" },
-        };
+        var persons = _personService.GetAll();
 
         foreach (var person in persons)
         {
