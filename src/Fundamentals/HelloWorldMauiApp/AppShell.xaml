@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="HelloWorldMauiApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HelloWorldMauiApp"
+    xmlns:pages="clr-namespace:HelloWorldMauiApp.Pages"
+    Title="HelloWorldMauiApp">
+
+    <ShellContent
+        Title="Home"        
+        ContentTemplate="{DataTemplate pages:AboutPage}"
+        Route="MainPage" />
+
+</Shell>
