@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UrzadzeniaDomoweMauiApp.Pages.UrzadzeniaDomowePage"
+             Title="UrzadzeniaDomowePage">
+
+    <ContentPage.Resources>
+        <Style x:Key="LabelFontSize" TargetType="Label">
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Blue" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout>
+        <Label 
+            Text="Urzadzenia domowe"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label Text="Autor: 0000001"
+               HorizontalOptions="Center"
+               />
+
+        <Grid 
+            ColumnDefinitions="*,*" 
+            RowDefinitions="*,*"
+            HeightRequest="400">
+            
+            <!-- Pralka -->
+
+            <Image Source="dotnet_bot.png" />
+            
+            <VerticalStackLayout Grid.Column="1" >
+                
+                <Label Text="Pralka" Style="{StaticResource LabelFontSize}" />
+                <Entry x:Name="NrPrania"  
+                       Placeholder="Podaj nr prania 1..12"
+                       Keyboard="Numeric" />
+                
+                <Button Text="Zatwierdz" Style="{StaticResource ButtonStyle}"
+                        Clicked="PralkaZatwierdz_Clicked"
+                        />
+
+                <HorizontalStackLayout>
+                    <Label Text="Numer prania: "/>
+                    <Label x:Name="NumerPraniaLabel" Text="nie podano"/>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+            
+            <!-- Odkurzacz -->
+
+            <Image Source="dotnet_bot.png" Grid.Column="0" Grid.Row="1" />
+
+            <VerticalStackLayout Grid.Column="1" Grid.Row="1" >
+                <Label Text="Odkurzacz" Style="{StaticResource LabelFontSize}" />
+                <Button x:Name="WlaczWylaczOdkurzacz" Text="Wlacz" Style="{StaticResource ButtonStyle}"
+                        Clicked="WlaczOdkurzacz_Clicked"
+                        />
+
+                <HorizontalStackLayout>
+                    <Label Text="Odkurzacz "/>
+                    <Label x:Name="CzyOdkurzaczWlaczony" Text="wylaczony"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label Text="Status: "/>
+                    <Label x:Name="StatusOdkurzacza" Text="naladowany" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
