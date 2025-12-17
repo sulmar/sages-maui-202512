@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotatkiMauiApp.Pages.NotatkiPage"
+             Title="NotatkiPage">
+    <VerticalStackLayout>
+
+        <Grid ColumnDefinitions="*,Auto">
+            <Entry x:Name="NotatkaEntry" Placeholder="Nowy element" HorizontalOptions="Fill" />
+            <Button Text="Dodaj" BackgroundColor="Red" Margin="5"
+                    WidthRequest="70" Grid.Column="1"
+                    Clicked="DodajNotatke_Clicked"
+                    />
+        </Grid>
+
+        <CollectionView x:Name="Notatki" Margin="5">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding}" FontSize="18" Margin="10"  />
+                        <Border HeightRequest="1" BackgroundColor="Green" />
+                    </VerticalStackLayout>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+    </VerticalStackLayout>
+</ContentPage>
