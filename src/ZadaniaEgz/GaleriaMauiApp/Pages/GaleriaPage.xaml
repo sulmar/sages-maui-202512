@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:m="clr-namespace:GaleriaMauiApp.Models"
              x:Class="GaleriaMauiApp.Pages.GaleriaPage"
              Title="GaleriaPage">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="ZdjecieTemplate" x:DataType="{x:Type m:Zdjecie}">
+            <VerticalStackLayout>
+                <Image Source="{Binding Filename}" />
+                <HorizontalStackLayout>
+                    <Label Text="Pobran: "/>
+                    <Label Text="{Binding Downloads}" />
+                </HorizontalStackLayout>
+
+                <Button Text="Pobierz" 
+                WidthRequest="80"
+                HeightRequest="40"                                
+                HorizontalOptions="Start"
+                Clicked="Pobierz_Clicked"
+                />
+
+            </VerticalStackLayout>
+
+        </DataTemplate>
+    </ContentPage.Resources>
     
     <Grid RowDefinitions="Auto, *">
 
@@ -23,10 +45,29 @@
                 <Label Text="Samochody" VerticalTextAlignment="Center" />
             </HorizontalStackLayout>
         </VerticalStackLayout>
-        
-        
 
-        <CollectionView x:Name="ZdjeciaCollection" Grid.Row="1">
+        <!-- Panel sterowania -->
+        <Grid ColumnDefinitions="Auto,*,Auto" Grid.Row="1">
+
+           
+
+            <!--<CarouselView 
+                x:Name="ZdjeciaCollection" 
+                ItemTemplate="{StaticResource ZdjecieTemplate}"  
+                Grid.Row="1" >
+            </CarouselView>-->
+
+            <Image x:Name="WybraneZdjecie" Grid.Row="1"  />
+
+            <Button Text="&lt;" Grid.Row="0" WidthRequest="20" HeightRequest="20" 
+         Clicked="Wstecz_Clicked" HorizontalOptions="Start" Margin="10" />
+            
+            <Button Text="&gt;"  Grid.Row="2" WidthRequest="20" HeightRequest="20"
+                    Clicked="Dalej_Clicked" HorizontalOptions="End" Margin="10" />
+        </Grid>
+
+        <CollectionView x:Name="ZdjeciaCollection" Grid.Row="1" IsVisible="False"
+                        ItemTemplate="{StaticResource ZdjecieTemplate}">
 
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="2"
@@ -34,27 +75,7 @@
                                  HorizontalItemSpacing="5" />
             </CollectionView.ItemsLayout>
                         
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <VerticalStackLayout>
-                        <Image Source="{Binding Filename}" />
-                        <HorizontalStackLayout>
-                            <Label Text="Pobran: "/>
-                            <Label Text="{Binding Downloads}" />
-                        </HorizontalStackLayout>
-
-                        <Button Text="Pobierz" 
-                                WidthRequest="80"
-                                HeightRequest="40"                                
-                                HorizontalOptions="Start"
-                                Clicked="Pobierz_Clicked"
-                                />
-
-                    </VerticalStackLayout>
-                    
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            
+           
         </CollectionView>
     </Grid>
 </ContentPage>
