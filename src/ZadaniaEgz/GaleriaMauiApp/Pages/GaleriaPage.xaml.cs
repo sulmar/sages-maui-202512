@@ -1,4 +1,5 @@
 using GaleriaMauiApp.Models;
+using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace GaleriaMauiApp.Pages;
@@ -24,23 +25,50 @@ public partial class GaleriaPage : ContentPage
 
     private List<Zdjecie>? wszystkieZdjecia;
     private List<Zdjecie> przefiltrowaneZdjecia = new List<Zdjecie>();
+
+    private HttpClient client;
     
-    public GaleriaPage()
+    public GaleriaPage(IHttpClientFactory factory)
     {
         InitializeComponent();
+
+        client = factory.CreateClient("api");
 
         ZaladujZdjecia();
     }
     
     private void ZaladujZdjecia()
-    {        
-        JsonSerializerOptions options = new JsonSerializerOptions
-        { 
-            PropertyNameCaseInsensitive = true // Wlaczenie ignorowania wielkosci liter
+    {
+        //JsonSerializerOptions options = new JsonSerializerOptions
+        //{
+        //    PropertyNameCaseInsensitive = true // Wlaczenie ignorowania wielkosci liter
+        //};
+
+        //wszystkieZdjecia = JsonSerializer.Deserialize<List<Zdjecie>>(galleryJson, options); // Deserializacja
+
+        // Reczne tworzenie klienta HttpClient
+
+        /*
+       string baseUrl = "https://10.0.2.2:5000";
+
+        var handler = new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback = (message, cert, chain, error) => true
         };
 
-        wszystkieZdjecia = JsonSerializer.Deserialize<List<Zdjecie>>(galleryJson, options); // Deserializacja
-        
+        HttpClient client = new HttpClient(handler);
+        client.BaseAddress = new Uri(baseUrl);
+        */
+
+        try
+        {
+            wszystkieZdjecia = client.GetFromJsonAsync<List<Zdjecie>>("/api/zdjecia").Result;
+        }
+        catch (Exception ex)
+        {
+        }
+
+
         ZastosujFiltr();        
 
         ZdjeciaCollection.ItemsSource = przefiltrowaneZdjecia;
@@ -88,10 +116,7 @@ public partial class GaleriaPage : ContentPage
         if (SamochodySwitch.IsToggled)
             wybraneKategorie.Add(3);
 
-        while(wszystkieZdjecia.GetEnumerator().MoveNext())
-        {
-
-        }
+       
 
         foreach(Zdjecie zdjecie in wszystkieZdjecia)
         {
