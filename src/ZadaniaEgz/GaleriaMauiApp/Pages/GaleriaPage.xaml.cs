@@ -1,3 +1,6 @@
+using GaleriaMauiApp.Models;
+using System.Text.Json;
+
 namespace GaleriaMauiApp.Pages;
 
 public partial class GaleriaPage : ContentPage
@@ -20,9 +23,20 @@ public partial class GaleriaPage : ContentPage
 ";
 
 
+    
+
 
     public GaleriaPage()
     {
         InitializeComponent();
+
+        ZaladujZdjecia();
+    }
+    
+    private void ZaladujZdjecia()
+    {
+        List<Zdjecie>? zdjecia = JsonSerializer.Deserialize<List<Zdjecie>>(galleryJson); // Deserializacja
+
+
     }
 }
