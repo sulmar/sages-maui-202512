@@ -3,10 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GaleriaMauiApp.Pages.GaleriaPage"
              Title="GaleriaPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Kategorie zdjec"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    <Grid RowDefinitions="Auto, *">
+
+        <VerticalStackLayout>
+            <Label 
+                Text="Kategorie zdjec"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <HorizontalStackLayout>
+                <Switch x:Name="KwiatySwitch" IsToggled="True" Toggled="Przelacznik_Changed" />
+                <Label Text="Kwiaty" VerticalTextAlignment="Center" />
+
+                <Switch x:Name="ZwierzetaSwitch" IsToggled="True" Toggled="Przelacznik_Changed"/>
+                <Label Text="Zwierzeta" VerticalTextAlignment="Center"/>
+
+                <Switch x:Name="SamochodySwitch" IsToggled="True" Toggled="Przelacznik_Changed"/>
+                <Label Text="Samochody" VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        
+        
+
+        <CollectionView x:Name="ZdjeciaCollection" Grid.Row="1">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"
+                                 VerticalItemSpacing="5"
+                                 HorizontalItemSpacing="5" />
+            </CollectionView.ItemsLayout>
+                        
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Image Source="{Binding Filename}" />
+                        <HorizontalStackLayout>
+                            <Label Text="Pobran: "/>
+                            <Label Text="{Binding Downloads}" />
+                        </HorizontalStackLayout>
+
+                        <Button Text="Pobierz" 
+                                WidthRequest="80"
+                                HeightRequest="40"                                
+                                HorizontalOptions="Start"
+                                Clicked="Pobierz_Clicked"
+                                />
+
+                    </VerticalStackLayout>
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+    </Grid>
 </ContentPage>
