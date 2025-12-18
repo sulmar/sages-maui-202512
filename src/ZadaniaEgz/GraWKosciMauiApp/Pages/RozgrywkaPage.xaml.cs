@@ -61,5 +61,6 @@ public partial class RozgrywkaPage : ContentPage
         // UI
         WynikLosowania.Text = wynikLosowania.ToString();
         WynikGry.Text = wynikGry.ToString();
-    }
+
+    }   
 }
