@@ -2,7 +2,7 @@
 
 ## Wprowadzenie
 
-Witaj w repozytorium z materiałami do szkolenia **Tworzenie aplikacji mobilnych** w .NET MAUI**. Czyli nie tylko konsumujemy treści na ekranie naszego smartfona ale tworzymy aplikacje!
+Witaj w repozytorium z materiałami do szkolenia **Tworzenie aplikacji mobilnych** w .NET MAUI. Czyli nie tylko konsumujemy treści na ekranie naszego smartfona ale tworzymy aplikacje!
 Ten projekt zawiera kompleksowe przykłady i ćwiczenia demonstrujące kluczowe koncepcje tworzenia aplikacji mobilnych w .NET MAUI  z wykorzystaniem wzorca Model-View-ViewModel (MVVM) i biblioteki MVVM Toolkit.
 
 ### Cele szkolenia
