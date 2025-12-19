@@ -92,3 +92,35 @@ Aplikacja do kontroli urządzeń domowych demonstrująca:
 - **Odkurzacz**: Przełączanie stanu włączony/wyłączony z aktualizacją interfejsu
 - Separacja logiki biznesowej od aktualizacji UI
 - Walidacja danych wejściowych
+
+## Zadania egzaminacyjne INF.04
+
+Poniżej znajdują się odnośniki do zadań praktycznych z kwalifikacji **INF.04 - Projektowanie, programowanie i testowanie aplikacji**, zgodnie z opisami dostępnymi na stronie [praktycznyegzamin.pl](https://www.praktycznyegzamin.pl/inf04/praktyka/). Każde zadanie zawiera link do opisu zadania oraz do odpowiedniego projektu w tym repozytorium.
+
+### 2025
+
+#### Zima
+
+1. **[Aplikacja webowa "Kategorie zdjęć"](https://www.praktycznyegzamin.pl/inf04/praktyka/inf_04_01_25_01/)** (INF.04-01-25.01)
+   - Projekt: [`src/ZadaniaEgz/GaleriaApi/`](src/ZadaniaEgz/GaleriaApi/) i [`src/ZadaniaEgz/GaleriaMauiApp/`](src/ZadaniaEgz/GaleriaMauiApp/)
+   - Aplikacja webowa z API REST oraz aplikacja mobilna do przeglądania zdjęć z kategoriami
+
+2. **[Aplikacja mobilna "Urządzenia domowe"](https://www.praktycznyegzamin.pl/inf04/praktyka/inf_04_02_25_01/)** (INF.04-02-25.01)
+   - Projekt: [`src/ZadaniaEgz/UrzadzeniaDomoweMauiApp/`](src/ZadaniaEgz/UrzadzeniaDomoweMauiApp/)
+   - Aplikacja do kontroli urządzeń domowych (pralka, odkurzacz) z walidacją danych
+
+### 2024
+
+#### Lato
+
+1. **[Aplikacja mobilna "Gra w kości"](https://www.praktycznyegzamin.pl/inf04/praktyka/inf_04_01_24_06/)** (INF.04-01-24.06)
+   - Projekt: [`src/ZadaniaEgz/GraWKosciMauiApp/`](src/ZadaniaEgz/GraWKosciMauiApp/)
+   - Gra w kości z losowaniem wartości, sumowaniem wyników i akumulowaniem wyniku całej gry
+
+### 2023
+
+#### Zima
+
+1. **[Aplikacja mobilna "Proste notatki tekstowe"](https://www.praktycznyegzamin.pl/inf04/praktyka/inf_04_02_23_01/)** (INF.04-02-23.01)
+   - Projekt: [`src/ZadaniaEgz/NotatkiMauiApp/`](src/ZadaniaEgz/NotatkiMauiApp/)
+   - Aplikacja do zarządzania notatkami z możliwością dodawania i usuwania notatek
